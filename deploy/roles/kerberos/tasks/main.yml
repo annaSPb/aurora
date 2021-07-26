@@ -2,9 +2,7 @@
 ---
 - name: Install Kerberos
   yum:
-    name: "{{ item }}"
-    state: present
-  with_items:
+    name: 
     - krb5-libs
     - krb5-workstation
     - krb5-devel
@@ -12,6 +10,7 @@
     - sssd-krb5
     - sssd-krb5-common
     - libselinux-python
+    state: present
 
 - name: Create log directory
   file:

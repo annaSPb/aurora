@@ -10,9 +10,8 @@
 
 - name: Install Apache
   yum:
-    name: "{{ item }}"
+    name: "{{ apache_packages }}"
     state: present
-  with_items: "{{ apache_packages }}"
   tags:
     - apache
 
@@ -50,19 +49,19 @@
 
 - name: Open port 80 in iptables
   command: "iptables -I {{ iptables_chain }} 3 -m state --state NEW -p tcp --dport 80 -j ACCEPT"
-  when: iptables_config
+  when: iptables_config | bool # [DEPRECATION WARNING]: evaluating iptables_config as a bare variable
   tags:
     - apache
 
 - name: Open port 443 in iptables
   command: "iptables -I {{ iptables_chain }} 3 -m state --state NEW -p tcp --dport 443 -j ACCEPT"
-  when: iptables_config
+  when: iptables_config == True # [DEPRECATION WARNING]: evaluating iptables_config as a bare variable
   tags:
     - apache
 
 - name: Save rules
   command: "/sbin/service iptables save"
-  when: iptables_config
+  when: iptables_config | default(false) | bool # [DEPRECATION WARNING]: evaluating iptables_config as a bare variable
   tags:
     - apache
 
