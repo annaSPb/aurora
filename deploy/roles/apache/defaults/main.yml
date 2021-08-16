@@ -11,8 +11,8 @@ apache_packages:
   - php-common
   - php-ldap
 
-apache_disabled_services: 
-  - httpd24
+apache_disabled_services: []
+#  - httpd24
 
 apache_config_path: /etc/httpd
 apache_config_dir: /etc/httpd/conf.d
