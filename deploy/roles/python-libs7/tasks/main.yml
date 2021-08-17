@@ -55,6 +55,7 @@
     name: "{{ python3_packages }}"
     executable: pip3
     umask: '0022'
+    extra_args: --ignore-installed
   when: install_python
   tags:
     - python-libs
