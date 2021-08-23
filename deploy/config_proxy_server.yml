@@ -43,7 +43,6 @@
       when: enclave_proxy_repo is defined and apache_result.rc != 0
 
     - name: Gracefully restart apache
-#      command: "service httpd graceful"
       systemd:
         name: httpd
         daemon_reload: yes
