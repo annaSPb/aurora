@@ -11,7 +11,7 @@ env AVASTUS_MARATHON_HOSTS={% for h in avastus_marathon_hosts %}http://{{ h }}:8
 
 env AVASTUS_LOG_LEVEL=info
 env AVASTUS_LOG_FILE=/var/log/avastus.log
-env AVASTUS_SERVICE_NAME=httpd24-httpd
+env AVASTUS_SERVICE_NAME=httpd
 env AVASTUS_APACHE_CONF_DIR={{ avastus_apache_conf }}
 env AVASTUS_LOGSTASH_HOST={{ avastus_logstash_host }}
 env AVASTUS_LOGSTASH_PORT={{ avastus_logstash_port }}
