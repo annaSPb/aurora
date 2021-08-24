@@ -47,4 +47,4 @@
   template:
       src: scl_enable_python36.sh.j2
       dest: /etc/profile.d/scl_enable_python36.sh
-  when: set_python36_default_python
+  when: set_python36_default_python | bool

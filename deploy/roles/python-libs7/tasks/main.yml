@@ -9,44 +9,44 @@
 
 - name: tst Install updated pip & setuptools Python packages for 27 (for pysolr)
   command: scl enable python27 -- pip install pip==20.3.4 setuptools==12
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs
 
 - name: Install Python packages dep for othe package for 27 (needed by SLIP, and for cairocffi)
   command: scl enable python27 "pip install matplotlib==2.2.3 NeuroTools cffi==1.14.4 --ignore-installed six"
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs
 
 - name: tst Install Python packages for 27
   command: scl enable python27 "pip install {{ ' '.join(python2_packages) }}"
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs
 
 - name: Install Python packages dep for othe package for 36 (needed by SLIP)
   command: scl enable rh-python36 "pip install matplotlib NeuroTools"
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs
 
 - name: Install Python packages for 36
   command: scl enable rh-python36 "pip install {{ ' '.join(python3_packages) }}"
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs
 
 # - name: Install Python packages dep for EPEL package for 36 (needed by SLIP)
 #   become: yes
 #   command: python3 -m pip install matplotlib NeuroTools
-#   when: install_python
+#   when: install_python | bool
 #   tags:
 #     - python-libs
 
 # - name: Install Python packages for EPEL 36
 #   command: pip3 install {{ ' '.join(python3_packages) }}
-#   when: install_python
+#   when: install_python | bool
 #   tags:
 #     - python-libs
 
@@ -56,6 +56,6 @@
     executable: pip3
     umask: '0022'
     extra_args: --ignore-installed
-  when: install_python
+  when: install_python | bool
   tags:
     - python-libs

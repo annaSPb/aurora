@@ -5,8 +5,8 @@
   become: yes
   become_method: sudo
   roles:
-    - {role: puppet_disable, when: "disable_puppet"}
-    - {role: iptables, when: "iptables_config"}
+    - {role: puppet_disable, when: "disable_puppet" | bool}
+    - {role: iptables, when: "iptables_config" | bool}
     - common
     - ntp
     - kerberos
