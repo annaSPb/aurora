@@ -19,6 +19,17 @@
       when: enclave_proxy_repo is defined
       register: gitresult
 
+    - name: Ensure symbolic link to vhost confs location
+      file:
+        src: /srv/www/enclave_proxy/repo/vhost_conf
+        dest: /srv/www/enclave_proxy/vhost_conf
+        state: link
+        owner: apache
+        group: apache
+        mode: 0600
+      notify:
+        - restart apache
+
     - name: Ensure permissions are correct
       file:
         dest: /srv/www/enclave_proxy/repo
