@@ -28,7 +28,7 @@
         group: apache
         mode: 0600
       notify:
-        - restart apache
+        - restart apache7
 
     - name: Ensure permissions are correct
       file:
