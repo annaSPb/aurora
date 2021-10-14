@@ -1,0 +1,11 @@
+#- name: restart rserve
+#  service: 
+#    name: rserve
+#    state: restarted
+
+- name: restart rserve
+  become: True
+  systemd:
+    name: rserve
+    state: restarted
+    daemon_reload: yes

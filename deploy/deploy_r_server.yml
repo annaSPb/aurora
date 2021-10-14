@@ -1,0 +1,40 @@
+---
+
+- hosts: research_rserve
+  become: yes
+  become_method: sudo
+  roles:
+    - r-core
+    - r-libs
+    - r-serve
+
+  tasks:
+
+    - name: Install openSSL
+      yum:
+        name: 
+          - openssl
+          - openssl-devel
+        state: present
+      tags:
+        - r-serve
+
+    - name: Generate SSL Certs if requested
+      command: "openssl req -new -nodes -x509 -subj '/C={{ country }}/ST={{ state }}/L={{ city }}/O={{ organization_name }}/CN={{ ansible_hostname }}.{{ domain_name }}' -days 3650 -keyout {{ rserve_tls_key_file }} -out {{ rserve_tls_cert_file }} -extensions v3_ca"
+      when: generate_certs
+      args:
+        creates: "{{ rserve_tls_cert_file }}"
+
+    - name: Ensure permissions are correct
+      file:
+        dest: "{{ item }}"
+        mode: '0700'
+        owner: rserve
+        group: rserve
+      when: generate_certs
+      with_items:
+        - "{{ rserve_tls_cert_file }}"
+        - "{{ rserve_tls_key_file }}"
+
+
+

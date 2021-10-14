@@ -35,19 +35,18 @@
 
 - name: Install base packages
   yum:
-    name: "{{ item }}"
+    name: 
+      - R-devel
+      - blas
+      - blas-devel
+      - lapack
+      - lapack-devel
+      - texinfo
+      - texinfo-tex
+      - libicu
+      - libicu-devel
     state: "{{ r_core_state }}"
     disable_gpg_check: yes
-  with_items:
-    - R-devel
-    - blas
-    - blas-devel
-    - lapack
-    - lapack-devel
-    - texinfo
-    - texinfo-tex
-    - libicu
-    - libicu-devel
   tags:
     - r-core
 

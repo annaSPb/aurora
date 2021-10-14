@@ -1,0 +1,17 @@
+test_build: True
+
+rserve_directory: /etc/Rserv
+# rserve_config_path: /etc/Rserv/Rserv.conf 
+rserve_config_path: "{{ rserve_directory }}/Rserv.conf"
+# rserve_pwdfile_path: /etc/Rserv/pwdfile
+rserve_pwdfile_path: "{{ rserve_directory }}/pwdfile"
+
+rserve_user: rserve
+rserve_uid: 3333
+rserve_group: rserve
+rserve_gid: 5333
+
+# rserve_tls_cert_file: /etc/Rserv/rserve.pem
+rserve_tls_cert_file: "{{ rserve_directory }}/rserve.pem"
+# rserve_tls_key_file: /etc/Rserv/rserve.key
+rserve_tls_key_file: "{{ rserve_directory }}/rserve.key"

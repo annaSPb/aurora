@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - {role: epel, when: "use_epel and not 'production' in group_names"}
-  - {role: devtools, tags: r-libs}
-  - shared
-  - common
+  - {role: epel7, when: "use_epel and not 'production' in group_names"}
+  - {role: devtools7, tags: r-libs}
+  - shared7
+  - common7

@@ -1,0 +1,15 @@
+maxinbuf 8388608
+maxsendbuf 0
+uid 3333
+gid 5333
+tls.key /etc/Rserv/rserve.key
+tls.cert /etc/Rserv/rserve.pem
+tls.port 6311
+port 6312
+qap disable
+switch.qap.tls FALSE
+remote enable
+encoding utf8
+pwdfile /etc/Rserv/pwdfile
+# plaintext enable   https://kb.tableau.com/articles/howto/configuring-tableau-server-for-r-and-rserve #
+plaintext disable # https://karthikprabhu0104.wordpress.com/2017/04/09/setting-up-rserve-as-a-docker-container/ #

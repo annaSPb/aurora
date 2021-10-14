@@ -1,0 +1,70 @@
+---
+- name: Install Rserve package
+  shell: source scl_source enable devtoolset-7 && /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{ item }}' %in% installed.packages()[,'Package'])) { install.packages(pkgs='{{ item }}', INSTALL_opts=c('--no-test-load'),repos=c('http://cran.rstudio.com/'),dep=TRUE, upgrade_dependencies=FALSE); print('Added'); } else { print('Already installed'); }"
+  with_items: 
+    - Rserve
+  register: r_result
+  failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+  changed_when: "'Added' in r_result.stdout"
+  tags:
+    - r-serve
+
+- name: Create rserve group
+  group:
+    name: "{{ rserve_group }}"
+    gid: "{{ rserve_gid }}"
+    state: present
+  tags:
+    - rserve
+
+- name: Add user rserve if doesn't exist
+  user:
+    name: "{{ rserve_user }}"
+    uid: "{{ rserve_uid}} "
+    state: present
+    group: "{{ rserve_group }}"
+  tags:
+    - r-serve
+
+- name: Create Rserv folder
+  file:
+    dest: "{{ rserve_directory }}"
+    state: directory
+    owner: "{{ rserve_user }}"
+    group: "{{ rserve_group }}"
+  tags:
+    - r-serve
+
+- name: add config file
+  template:
+    src: Rserv.conf.j2
+#    dest: "{{ rserve_config_path }}"
+    dest: /etc/Rserv.conf
+    owner: "{{ rserve_user }}"
+    group: "{{ rserve_group }}"
+    mode: '0644'
+  tags:
+    - r-serve
+
+- name: add pwdfile file
+  template:
+    src: pwdfile.j2
+    dest: "{{ rserve_pwdfile_path }}"
+    owner: "{{ rserve_user }}"
+    group: "{{ rserve_group }}"
+    mode: '0644'
+  when: test_build
+  tags:
+    - r-serve
+
+- name: add rserve.service file
+  template:
+    src: rserve.service.j2
+    dest: /etc/systemd/system/rserve.service
+    owner: rserve
+    group: rserve
+    mode: '0644'
+  notify:
+    - restart rserve
+  tags:
+    - r-serve

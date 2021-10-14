@@ -10,7 +10,7 @@ r_dependencies:
   - udunits2-devel
   - openmpi
   - openmpi-devel
-  - openmpi-1.8-devel
+#  - openmpi-1.8-devel
 
 r_dependencies_ignore:
 
