@@ -1,21 +1,29 @@
 ---
 install_r_packages: true
 
-r_dependencies:
+# if this list is updated, aurora intenal should be updated as well 
+r_dependencies: 
   - libcurl-devel
   - libxml2-devel
-  - openssl-devel
+  - openssl  # update aurora internal
+  - openssl-devel # update aurora internal
+  - libssh2-devel # for rserve devtools https://stackoverflow.com/questions/30394563/cant-install-git2r-nor-devtools-r-packages-on-centos-7-0-64-bit
   - hunspell-devel
   - udunits2
   - udunits2-devel
   - openmpi
   - openmpi-devel
+  - harfbuzz-devel  # text package update aurora internal
+  - fribidi-devel  # text package update aurora internal
+  - freetype-devel # ragg package update aurora internal
+  - libpng-devel  # ragg package update aurora internal
+  - libtiff-devel  # ragg package update aurora internal
+  - libjpeg-turbo-devel # ragg package update aurora internal
 #  - openmpi-1.8-devel
 
 r_dependencies_ignore:
 
 r_packages:
-  #- "devtools"
   - pdbBASE
   - pmclust
 

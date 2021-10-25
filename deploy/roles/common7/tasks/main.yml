@@ -38,3 +38,10 @@
 #  with_items:
 #    - iptables
 #    - ip6tables
+
+- name: Create admin group
+  group:
+    name: "{{ restricted_group_name }}"
+    state: present
+  tags:
+    - always

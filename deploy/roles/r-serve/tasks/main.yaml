@@ -38,7 +38,7 @@
 - name: add config file
   template:
     src: Rserv.conf.j2
-#    dest: "{{ rserve_config_path }}"
+#    dest: "{{ rserve_config_path }}" # by default Rserve looks at /etc
     dest: /etc/Rserv.conf
     owner: "{{ rserve_user }}"
     group: "{{ rserve_group }}"
@@ -61,8 +61,10 @@
   template:
     src: rserve.service.j2
     dest: /etc/systemd/system/rserve.service
-    owner: rserve
-    group: rserve
+#    owner: "{{ rserve_user }}"
+#    group: "{{ rserve_group }}"
+    owner: root
+    group: root
     mode: '0644'
   notify:
     - restart rserve

@@ -1,4 +1,4 @@
-test_build: True
+test_build: False
 
 rserve_directory: /etc/Rserv
 # rserve_config_path: /etc/Rserv/Rserv.conf 

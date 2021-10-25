@@ -592,8 +592,8 @@ Vagrant.configure(2) do |config|
       d.build_dir = "./docker/centos7"
       d.has_ssh = true
       d.name = "research_rserve_1"
-      d.expose = [ 22, 6311 ]
-      d.ports = ["6311:6311"]
+      d.expose = [ 22, 6311, 6312 ]
+      d.ports = ["6311:6311", "6312:6312"]
       d.volumes = [ 
         "/sys/fs/cgroup:/sys/fs/cgroup:ro"
       ]

@@ -6,10 +6,13 @@ tls.key /etc/Rserv/rserve.key
 tls.cert /etc/Rserv/rserve.pem
 tls.port 6311
 port 6312
+# pwdfile /etc/Rserv/pwdfile  # https://github.com/s-u/Rserve/issues/170 #
 qap disable
 switch.qap.tls FALSE
 remote enable
-encoding utf8
-pwdfile /etc/Rserv/pwdfile
-# plaintext enable   https://kb.tableau.com/articles/howto/configuring-tableau-server-for-r-and-rserve #
-plaintext disable # https://karthikprabhu0104.wordpress.com/2017/04/09/setting-up-rserve-as-a-docker-container/ #
+# encoding utf8 #
+# plaintext enable    https://kb.tableau.com/articles/howto/configuring-tableau-server-for-r-and-rserve #
+# plaintext enable   https://github.com/s-u/Rserve/issues/170 #
+# plaintext disable   https://karthikprabhu0104.wordpress.com/2017/04/09/setting-up-rserve-as-a-docker-container/ #
+# auth required  https://github.com/s-u/Rserve/issues/170 #
+
