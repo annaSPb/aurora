@@ -5,20 +5,18 @@ install_r_packages: true
 r_dependencies: 
   - libcurl-devel
   - libxml2-devel
-  - openssl  # update aurora internal
-  - openssl-devel # update aurora internal
   - libssh2-devel # for rserve devtools https://stackoverflow.com/questions/30394563/cant-install-git2r-nor-devtools-r-packages-on-centos-7-0-64-bit
   - hunspell-devel
   - udunits2
   - udunits2-devel
   - openmpi
   - openmpi-devel
-  - harfbuzz-devel  # text package update aurora internal
-  - fribidi-devel  # text package update aurora internal
-  - freetype-devel # ragg package update aurora internal
-  - libpng-devel  # ragg package update aurora internal
-  - libtiff-devel  # ragg package update aurora internal
-  - libjpeg-turbo-devel # ragg package update aurora internal
+  - harfbuzz-devel  # text package devtools
+  - fribidi-devel  # text package devtools
+  - freetype-devel # ragg package devtools 
+  - libpng-devel  # ragg package devtools 
+  - libtiff-devel  # ragg package devtools
+  - libjpeg-turbo-devel # ragg package devtools
 #  - openmpi-1.8-devel
 
 r_dependencies_ignore:
