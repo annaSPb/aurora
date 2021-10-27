@@ -20,6 +20,7 @@ r_dependencies:
 #  - openmpi-1.8-devel
 
 r_dependencies_ignore:
+  - texlive-texmf-xetex
 
 r_packages:
   - pdbBASE
