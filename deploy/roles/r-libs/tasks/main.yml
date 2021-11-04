@@ -9,6 +9,26 @@
   tags:
     - r-libs
 
+- name: Create Makevars file # GA package CXX14 is not defined https://github.com/stan-dev/rstan/issues/569
+  file:
+    dest: "~/.R"
+    state: directory
+    owner: root
+    group: root
+  tags:
+    - r-libs
+
+- name: Add Makevars file # GA package CXX14 is not defined https://github.com/stan-dev/rstan/issues/569
+  template:
+    src: Makevars
+#    dest: "{{ rserve_config_path }}" # by default Rserve looks at /etc
+    dest: ~/.R/Makevars
+    owner: root
+    group: root
+    mode: '0644'
+  tags:
+    - r-libs
+
 - name: Find any locked directories
   become: yes
   become_method: sudo

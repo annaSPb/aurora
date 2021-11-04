@@ -17,7 +17,15 @@ r_dependencies:
   - libpng-devel  # ragg package devtools 
   - libtiff-devel  # ragg package devtools
   - libjpeg-turbo-devel # ragg package devtools
+  - nlopt # to install from r packages list in prod arm, bgmm, car, lne4, +10 other https://stackoverflow.com/questions/29716857/installing-nloptr-on-linux
+  - nlopt-devel # to install from r packages list in prod arm, bgmm, car, lne4, +10 other
 #  - openmpi-1.8-devel
+#  - gdal # gsl package dependency, v.1, error terra needs at least v.2
+  - postgresql-devel # RPostgreSQL
+  - gsl-devel # for gsl
+#  - gsl # for gsl
+  - gdal-devel
+#  - gdal
 
 r_dependencies_ignore:
   - texlive-texmf-xetex
@@ -25,8 +33,25 @@ r_dependencies_ignore:
 r_packages:
   - pdbBASE
   - pmclust
-
-r_packages_ignore:
+  - arm
+  - bgmm
+  - car
+#  - gstat
+  - sem
+  - GA # needs Makevars file from templates/ https://github.com/stan-dev/rstan/issues/569
+  - lme4
+  - rgdal
+#  - micromap # gdal-config not found or not executable
+  - sampleSelection
+  - Rcmdr
+#  - RcmdrPlugin.temis # Text Mining Solution, do we need it on rserve?
+#  - copula # pip install copula
+  - sf # not listed as a package, failed as a dependency, wanted to try loading separately
+#  - spsurvey # ERROR: configuration failed for package ‘sf’
+  - raster
+  - RPostgreSQL
+#  - leaflet # gdal-config not found or not executable, gdal < 2.0.1
+#  - OpenStreetMap # gdal-config not found or not executable
 
 r_packages_github:
   - name: shinydashboard
