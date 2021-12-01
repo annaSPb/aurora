@@ -57,5 +57,5 @@
       systemd:
         name: httpd
         daemon_reload: yes
-        state: restarted
+        state: reloaded
         enabled: True
