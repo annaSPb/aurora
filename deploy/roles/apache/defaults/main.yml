@@ -1,18 +1,15 @@
 ---
-apache_24_repo: "http://repos.fedorapeople.org/repos/jkaluza/httpd24/epel-httpd24.repo"
 apache_packages:
-  - httpd # httpd24-httpd
-  - httpd-devel # httpd24-httpd-devel
-  - mod_ssl # httpd24-mod_ssl
-  - mod_ldap # httpd24-mod_ldap
-#  - http://cbs.centos.org/kojifiles/packages/httpd24-mod_auth_kerb/5.4/30.el6/x86_64/httpd24-mod_auth_kerb-5.4-30.el6.x86_64.rpm
+  - httpd
+  - httpd-devel
+  - mod_ssl 
+  - mod_ldap
   - openssh
   - php
   - php-common
   - php-ldap
 
 apache_disabled_services: []
-#  - httpd24
 
 apache_config_path: /etc/httpd
 apache_config_dir: /etc/httpd/conf.d

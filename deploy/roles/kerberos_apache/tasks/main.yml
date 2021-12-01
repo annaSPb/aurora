@@ -26,7 +26,6 @@
   yum:
     name: 
       - mod_auth_kerb
-  #    - mod_authz_ldap
       - mod_ldap
     state: latest
 

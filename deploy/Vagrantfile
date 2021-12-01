@@ -212,7 +212,7 @@ Vagrant.configure(2) do |config|
         ]
       d.create_args = ['--tmpfs', '/tmp:exec', '--tmpfs', '/run',
                        '--cap-add', 'NET_ADMIN', '--cap-add', 'NET_RAW',
-                       '--cpus', '1', '--memory', '3048M']
+                       '--cpus', '1', '--memory', '1024M']
     end
 
     proxy_config.vm.provision :shell,
