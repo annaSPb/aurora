@@ -31,7 +31,7 @@
         - /srv/www/enclave_proxy
         - /srv/www/enclave_proxy/html
         - /srv/www/enclave_proxy/html/restricted
-    #    - /srv/www/enclave_proxy/repo/vhost_conf
+        - /srv/www/enclave_proxy/repo/vhost_conf
 
     - name: Create SSL folder
       file:
