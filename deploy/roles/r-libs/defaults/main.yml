@@ -21,7 +21,6 @@ r_dependencies:
   - nlopt-devel # to install from r packages list in prod arm, bgmm, car, lne4, +10 other
 #  - openmpi-1.8-devel
 #  - gdal # gsl package dependency, v.1, error terra needs at least v.2
-  - postgresql-devel # RPostgreSQL
   - gsl-devel # for gsl
 #  - gsl # for gsl
   - gdal-devel

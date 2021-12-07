@@ -5,20 +5,11 @@
   become_method: sudo
   roles:
     - r-core
+    - postgresql-client
     - r-libs
     - r-serve
 
   tasks:
-
-    # - name: Install openSSL # added to r-libs
-    #   yum:
-    #     name: 
-    #       - openssl
-    #       - openssl-devel
-    #     state: present
-    #   tags:
-    #     - r-serve
-
     - name: Generate SSL Certs if requested
       command: "openssl req -new -nodes -x509 -subj '/C={{ country }}/ST={{ state }}/L={{ city }}/O={{ organization_name }}/CN={{ ansible_hostname }}.{{ domain_name }}' -days 3650 -keyout {{ rserve_tls_key_file }} -out {{ rserve_tls_cert_file }} -extensions v3_ca"
       when: generate_certs

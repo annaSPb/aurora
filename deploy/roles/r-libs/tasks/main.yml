@@ -88,6 +88,8 @@
   with_items: "{{ r_packages | difference(r_packages_ignore | default([],true)) }}"
   register: r_result
   failed_when: "r_result.rc != 0 or 'had non-zero exit status' in r_result.stderr"
+  environment:
+    PATH: "{{ postgres_install_dir }}/bin:{{ ansible_env.PATH }}"
   changed_when: "'Added' in r_result.stdout"
   tags:
     - r-libs
