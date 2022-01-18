@@ -19,7 +19,7 @@ RuntimeDirectoryMode=750
 # Robin Cottiss-  nobody might work if nobody has permission to run R
 User=rserve
 Group=rserve
-ExecStart=/usr/bin/R CMD Rserve --quiet --vanilla --RS-pidfile /var/run/rserve/rserve.pid
+ExecStart=/usr/bin/R CMD Rserve --quiet --vanilla --RS-enable-remote --RS-pidfile /var/run/rserve/rserve.pid 
 
 [Install]
 WantedBy=multi-user.target
