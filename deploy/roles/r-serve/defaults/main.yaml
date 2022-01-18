@@ -4,7 +4,6 @@ rserve_dependencies:
   - openssl
   - openssl-devel
   - libssh2-devel
-  - libtool
 
 rserve_directory: /etc/Rserv
 # rserve_config_path: /etc/Rserv/Rserv.conf 
