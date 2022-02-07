@@ -2,10 +2,13 @@ maxinbuf 8388608
 maxsendbuf 0
 uid 3333
 gid 5333
+{% if rserve_enable_tls %}
 tls.key /etc/Rserv/rserve.key
 tls.cert /etc/Rserv/rserve.pem
 tls.port 6311
-port 6312
+{% else %}
+http.port 6311
+{% endif %}
 # pwdfile /etc/Rserv/pwdfile  # https://github.com/s-u/Rserve/issues/170 #
 qap disable
 switch.qap.tls FALSE
