@@ -40,6 +40,7 @@ r_packages:
   - sem
   - GA # needs Makevars file from templates/ https://github.com/stan-dev/rstan/issues/569
   - lme4
+#  - nloptr # current version 2.0.0 is not installing, getting /bin/ld: cannot find -lnlopt, ERROR: compilation failed for package ‘nloptr’
   - rgdal
 #  - micromap # gdal-config not found or not executable
   - sampleSelection
@@ -73,3 +74,5 @@ r_packages_versioned:
     version: 0.3-8
   - name: pbdSLAP
     version: 0.2-4
+  - name: nloptr
+    version: 1.2.2
